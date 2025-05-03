@@ -96,7 +96,7 @@ func attachTc(devID *net.Interface, prog *ebpf.Program) (func(), error) {
 			Family:  unix.AF_UNSPEC,
 			Ifindex: uint32(devID.Index),
 			Handle:  0,
-			Parent:  core.BuildHandle(tc.HandleRoot, tc.HandleMinIngress),
+			Parent:  core.BuildHandle(tc.HandleRoot, tc.HandleMinEgress),
 			Info:    uint32(htons(unix.ETH_P_ALL)),
 		},
 		tc.Attribute{
