@@ -22,7 +22,6 @@ int sample_prog(struct __sk_buff *skb){
     void *data = (void *)(long)skb->data;
     void *data_end = (void *)(long)skb->data_end;
     if (!pcap_filter((void *)skb, (void *)skb, (void *)skb, data, data_end)) {
-        bpf_printk("pcap_filter not match\n");
         goto out;
     }
 

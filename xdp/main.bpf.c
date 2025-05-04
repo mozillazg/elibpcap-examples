@@ -20,7 +20,6 @@ int sample_prog(struct xdp_md *ctx){
     void *data = (void *)(long)ctx->data;
     void *data_end = (void *)(long)ctx->data_end;
     if (!pcap_filter((void *)ctx, (void *)ctx, (void *)ctx, data, data_end)) {
-        bpf_printk("pcap_filter not match\n");
         goto out;
     }
 
