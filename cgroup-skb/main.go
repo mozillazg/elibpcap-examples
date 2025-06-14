@@ -53,9 +53,9 @@ func injectFilter(spec *ebpf.CollectionSpec, expr string) error {
 
 	oldInsts := spec.Programs["sample_prog"].Instructions
 	newInsts, err := elibpcap.Inject(expr, oldInsts, elibpcap.Options{
-		AtBpf2Bpf:  "pcap_filter",
-		DirectRead: true,
-		L2Skb:      false,
+		AtBpf2Bpf:        "pcap_filter",
+		PacketAccessMode: elibpcap.Direct,
+		L2Skb:            false,
 	})
 	if err != nil {
 		return err
