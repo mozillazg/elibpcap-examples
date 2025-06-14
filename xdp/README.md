@@ -4,7 +4,7 @@
 
 make build
 
-make run filter='icmp and host 127.0.0.1'
+make run filter='host 127.0.0.1 and tcp and port 80'
 
-ping 127.0.0.1 -c 1
+curl 127.0.0.1
 ```

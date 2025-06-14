@@ -4,7 +4,7 @@
 
 make build
 
-make run filter='icmp and host 127.0.0.1'
+make run filter='dst host 127.0.0.1 and tcp[tcpflags] = tcp-syn'
 
-ping 127.0.0.1 -c 1
+curl 127.0.0.1
 ```
